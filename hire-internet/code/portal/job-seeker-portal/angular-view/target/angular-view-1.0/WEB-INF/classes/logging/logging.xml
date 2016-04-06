@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+
+	<logger name="com.hire" additivity="false" level="${com.hire.level}">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="org.springframework" additivity="false" level="${org.springframework.level}">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="org.hibernate" additivity="false" level="${org.hibernate.level}">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="entryExitLogger" additivity="false" level="DEBUG">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<logger name="org.springframework.security.saml" additivity="false" level="DEBUG">
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="log4j.logger.PROTOCOL_MESSAGE" additivity="false" level="DEBUG">
+		<appender-ref ref="FILE" />
+	</logger>
+	<logger name="org.opensaml" additivity="false" level="DEBUG">
+		<appender-ref ref="FILE" />
+	</logger>
+	
+	<root level="${root.level}">
+	   	<appender-ref ref="FILE" />
+	</root>
+		
+</included>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+
+    Copyright (c) 2009 - 2012 hCentive Inc. All rights reserved.
+
+-->
+
+<decorators defaultdir="/WEB-INF/layouts">
+    <excludes>
+        <pattern>**/*.html</pattern>
+        <pattern>**/*.shtml</pattern>
+        <pattern>**/includes/*</pattern>
+        <pattern>**/common/*</pattern>
+        <pattern>/template/*</pattern>
+    </excludes>
+	
+  <decorator name="angular_custom_layout" page="angular_custom_layout.jsp"/>
+    
+ </decorators>

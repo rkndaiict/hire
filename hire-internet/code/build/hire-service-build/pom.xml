@@ -1,0 +1,39 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<parent>
+		<artifactId>parent-build</artifactId>
+		<groupId>com.hire</groupId>
+		<version>1.0</version>
+		<relativePath>../parent-build/pom.xml</relativePath>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hire</groupId>
+	<artifactId>hire-service-build</artifactId>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>../parent-build</module>
+		<module>../web-deps</module>
+
+		<module>../../component/common/common-api</module>
+		<module>../../component/common/common-impl</module>
+		
+		<module>../../component/user-management-service/user-management-service-api</module>
+		<module>../../component/user-management-service/user-management-service-impl</module>
+		
+		<module>../../component/job-seeker-service/job-seeker-service-api</module>
+		<module>../../component/job-seeker-service/job-seeker-service-impl</module>
+
+		<module>../../component/company-service/company-service-api</module>
+		<module>../../component/company-service/company-service-impl</module>
+		
+		<module>../../component/agency-service/agency-service-api</module>
+		<module>../../component/agency-service/agency-service-impl</module>
+		
+		<module>../../component/hire-integration-service/hire-integration-service-api</module>
+		<module>../../component/hire-integration-service/hire-integration-service-impl</module>
+
+	</modules>
+</project>

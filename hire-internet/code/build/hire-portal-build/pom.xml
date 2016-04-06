@@ -1,0 +1,23 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	
+	<parent>
+		<artifactId>parent-build</artifactId>
+		<groupId>com.hire</groupId>
+		<version>1.0</version>
+		<relativePath>../parent-build/pom.xml</relativePath>
+	</parent>
+	
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.hire</groupId>
+	<artifactId>hire-portal-build</artifactId>
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>../parent-build</module>
+		<module>../web-deps</module>
+		
+		<module>../../portal/job-seeker-portal/job-seeker-web</module>
+		<module>../../portal/job-seeker-portal/job-seeker-view</module>
+	</modules>
+</project>

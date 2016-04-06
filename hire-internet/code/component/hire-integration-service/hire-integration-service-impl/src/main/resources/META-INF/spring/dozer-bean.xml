@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:util="http://www.springframework.org/schema/util"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.1.xsd">
+
+
+	<bean name="dozerBeanMapper" class="org.dozer.DozerBeanMapper">
+		<property name="customFieldMapper" ref="hibernateFieldMapper"></property>
+		<property name="mappingFiles">
+			<list>
+				<value>dozer-bean-mapping-job-seeker.xml</value>
+			</list>
+		</property>
+		<property name="customConverters">
+			<list>
+				<bean class="com.common.base.converters.StringEnumCustomConverter" />
+				<bean class="com.common.base.converters.StringDateCustomConverter" />
+			</list>
+		</property>
+	</bean>
+
+	<bean name="objectMapper" class="com.common.base.utils.mapper.ObjectMapperImpl">
+		<property name="dozerBeanMapper" ref="dozerBeanMapper"></property>
+	</bean>
+
+	<bean id="hibernateFieldMapper" class="com.common.base.utils.mapper.HibernateFieldMapper" />
+
+</beans>

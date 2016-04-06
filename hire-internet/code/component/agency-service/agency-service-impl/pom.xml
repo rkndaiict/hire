@@ -1,0 +1,38 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>com.hire</groupId>
+		<artifactId>parent-build</artifactId>
+		<version>1.0</version>
+		<relativePath>../../../build/parent-build/pom.xml</relativePath>
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<artifactId>agency-service-impl</artifactId>
+	<name>agency-service-impl</name>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.hire</groupId>
+			<artifactId>common-impl</artifactId>
+			<version>${version.product}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hire</groupId>
+			<artifactId>user-management-service-impl</artifactId>
+			<version>${version.product}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hire</groupId>
+			<artifactId>job-seeker-service-impl</artifactId>
+			<version>${version.product}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.hire</groupId>
+			<artifactId>company-service-impl</artifactId>
+			<version>${version.product}</version>
+		</dependency>		
+	</dependencies>
+
+</project>
