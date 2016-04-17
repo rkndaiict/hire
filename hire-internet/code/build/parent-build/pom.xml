@@ -18,7 +18,7 @@
 				<version>4.10</version>
 			</dependency>
 			<!-- Logger Dependencies -->
-
+			
 			<dependency>
 				<groupId>org.slf4j</groupId>
 				<artifactId>slf4j-api</artifactId>
@@ -466,8 +466,8 @@
 		<version.base.product>1.0</version.base.product>
 		<version.oracle>10.2.0.3.0</version.oracle>
 		<!-- Spring Dependencies -->
-		<version.spring>3.2.2.RELEASE</version.spring>
-		<version.spring-security>3.1.2.RELEASE</version.spring-security>
+		<version.spring>4.1.6.RELEASE</version.spring>
+		<version.spring-security>4.0.1.RELEASE</version.spring-security>
 		<version.spring.ws>2.1.0.RELEASE</version.spring.ws>
 		<version.spring.batch>2.1.8.RELEASE</version.spring.batch>
 		<version.spring.integration>2.1.0.RELEASE</version.spring.integration>
@@ -632,126 +632,8 @@
 								</resources>
 							</configuration>
 						</execution>
-						<!-- <execution>
-							<id>copy-resources-style</id>
-							<phase>validate</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.build.directory}/${project.build.finalName}/min/style</outputDirectory>
-								<resources>
-									<resource>
-										<directory>${project.build.directory}/${project.build.finalName}/style</directory>
-										<filtering>false</filtering>
-									</resource>
-								</resources>
-							</configuration>
-						</execution> -->
-						<!--<execution>
-							<id>copy-resources-css</id>
-							<phase>validate</phase>
-							<goals>
-								<goal>copy-resources</goal>
-							</goals>
-							<configuration>
-								<outputDirectory>${project.build.directory}/${project.build.finalName}/min/css</outputDirectory>
-								<resources>
-									<resource>
-										<directory>${project.build.directory}/${project.build.finalName}/css</directory>
-										<filtering>false</filtering>
-									</resource>
-								</resources>
-							</configuration>
-						</execution>-->
 					</executions>
 				</plugin>
-				<!--<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>findbugs-maven-plugin</artifactId>
-					<configuration>
-						<effort>Max</effort>
-						<threshold>Medium</threshold>
-					</configuration>
-					<executions>
-						<execution>
-							<id>findbugs-check</id>
-							<goals>
-								<goal>check</goal>
-							</goals>
-							<configuration>
-								<failOnError>false</failOnError>
-								<findbugsXmlOutput>true</findbugsXmlOutput>
-								<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
-								<xmlOutput>true</xmlOutput>
-							</configuration>
-						</execution>
-					</executions>
-				</plugin>-->
-				
-				<!--<plugin>
-					<groupId>org.eclipse.m2e</groupId>
-					<artifactId>lifecycle-mapping</artifactId>
-					<version>1.0.0</version>
-					<configuration>
-						<lifecycleMappingMetadata>
-							<pluginExecutions>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.codehaus.mojo</groupId>
-										<artifactId>findbugs-maven-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>check</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>net.alchim31.maven</groupId>
-										<artifactId>yuicompressor-maven-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>compress</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<execute />
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.apache.maven.plugins</groupId>
-										<artifactId>maven-enforcer-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>enforce</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-								<pluginExecution>
-									<pluginExecutionFilter>
-										<groupId>org.codehaus.mojo:</groupId>
-										<artifactId>properties-maven-plugin</artifactId>
-										<versionRange>[1.0.0,)</versionRange>
-										<goals>
-											<goal>enforce</goal>
-										</goals>
-									</pluginExecutionFilter>
-									<action>
-										<ignore />
-									</action>
-								</pluginExecution>
-							</pluginExecutions>
-						</lifecycleMappingMetadata>
-					</configuration>
-				</plugin>-->
 				<plugin>
 			        <groupId>org.codehaus.mojo</groupId>
 			        <artifactId>properties-maven-plugin</artifactId>
@@ -770,12 +652,7 @@
 			          </execution>
 			        </executions>
 			      </plugin>
-				
-			</plugins>
-		</pluginManagement>
-
-		<plugins>
-			<plugin>
+				<plugin>
 				<groupId>net.alchim31.maven</groupId>
 				<artifactId>yuicompressor-maven-plugin</artifactId>
 			</plugin>
@@ -810,48 +687,7 @@
 					<skipTests>true</skipTests>
 				</configuration>
 			</plugin>
-			<!--<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-enforcer-plugin</artifactId>
-				<version>1.1.1</version>
-				<inherited>true</inherited>
-				<executions>
-					<execution>
-						<id>enforce-versions</id>
-						<goals>
-							<goal>enforce</goal>
-						</goals>
-						<configuration>
-							<rules>
-								<requireMavenVersion>
-									<version>[3.0,)</version>
-								</requireMavenVersion>
-								<requireJavaVersion>
-									<version>[1.6,)</version>
-								</requireJavaVersion>
-							</rules>
-						</configuration>
-					</execution>
-					<execution>
-						<id>enforce-property</id>
-						<goals>
-						  <goal>enforce</goal>
-						</goals>
-						<configuration>
-						  <rules>
-							<requireProperty>
-							  <property>env</property>
-							  <message>ERROR: You must pass a env property! usage : -Denv=dev   or -Denv=prod</message>
-							  <regex>dev|prod</regex>
-							  <regexMessage>ERROR: Invalid env passed. Valid values : dev, prod</regexMessage>
-							</requireProperty>
-							
-						  </rules>
-						  <fail>true</fail>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>-->
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -909,12 +745,13 @@
 					</artifactItems>
 					<!-- other configurations here -->
 				</configuration>
-			</plugin>
-			<plugin>
-			        <groupId>org.codehaus.mojo</groupId>
+			 </plugin>
+			 <plugin>
+			 <groupId>org.codehaus.mojo</groupId>
 			        <artifactId>properties-maven-plugin</artifactId>
 			 </plugin>
-		</plugins>
+			</plugins>
+		</pluginManagement>
 
 		<extensions>
 			<extension>

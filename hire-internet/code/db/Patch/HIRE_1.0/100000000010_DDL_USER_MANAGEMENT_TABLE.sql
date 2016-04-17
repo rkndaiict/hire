@@ -82,6 +82,7 @@ master_Organization_ID number(20),
 
 
 create table User_Organization_List (
+ID NUMBER(20) NOT NULL,
 owner_user_id NUMBER(20),
 created_by varchar2(50),
 created_date TIMESTAMP  DEFAULT sysdate,

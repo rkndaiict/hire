@@ -27,6 +27,8 @@
 		<module>../component/common/common-api</module>
 		<module>../component/common/common-impl</module>
 
+		<module>../component/usermgmt-service</module>
+		
 		<module>../component/user-management-service/user-management-service-api</module>
 		<module>../component/user-management-service/user-management-service-impl</module>
 		
@@ -42,7 +44,11 @@
 		<module>../component/hire-integration-service/hire-integration-service-api</module>
 		<module>../component/hire-integration-service/hire-integration-service-impl</module>
 		
+		<module>../component/common-integrator</module>
+		
 		<!--portal -->
+		<module>../portal/common/common-web</module>
+		<module>../portal/common/common-view</module>
 		<module>../portal/job-seeker-portal/job-seeker-web</module>
 		<module>../portal/job-seeker-portal/job-seeker-view</module>
 	</modules>

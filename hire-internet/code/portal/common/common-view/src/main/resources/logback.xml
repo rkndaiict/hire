@@ -1,0 +1,28 @@
+<!--
+    Copyright (c) 2009 - 2012 hCentive Inc. All rights reserved.
+-->
+
+<configuration>
+
+	<property file="${catalina.base}/logback/logback.properties" scope="context"/>
+	
+	<appender name="FILE" class="ch.qos.logback.classic.sift.SiftingAppender">
+		<discriminator>
+      		<key>common</key>
+      		<defaultValue>default</defaultValue>
+    	</discriminator>
+    	<sift>
+      		<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+  				<file>${destination}/logs/common-view.log</file>
+  				<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+					<FileNamePattern>${destination}/logs/common-view.%d{yyyy-MM-dd}.log</FileNamePattern>
+				</rollingPolicy>
+				<encoder>
+    				<pattern>%date %level [%thread] %X{username} %logger{10} [%file:%line] %msg%n</pattern>
+				</encoder>
+			</appender>
+    	</sift>
+  	</appender>
+	
+	<include resource="logging/logging.xml" />
+</configuration>
