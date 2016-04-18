@@ -6,7 +6,7 @@
 	<groupId>com.hire</groupId>
 	<artifactId>parent-build</artifactId>
 	<version>1.0</version>
-	<relativePath>../../../build/parent-build/pom.xml</relativePath>
+	<relativePath>../../build/parent-build/pom.xml</relativePath>
   </parent>
   
   <artifactId>usermgmt-service</artifactId>
