@@ -5,8 +5,8 @@ import org.springframework.stereotype.Component;
 
 import com.hire.dto.UserDTO;
 import com.hire.service.api.UserServiceIntegration;
-import com.service.usermgmt.api.UserService;
-import com.service.usermgmt.domain.User;
+import com.service.usermanagement.api.UserDataService;
+import com.service.usermanagement.domain.UserData;
 
 import ma.glasnost.orika.MapperFacade;
 import ma.glasnost.orika.MapperFactory;
@@ -16,7 +16,7 @@ import ma.glasnost.orika.impl.DefaultMapperFactory;
 public class UserServiceIntegrationImpl implements UserServiceIntegration{
 
 	@Autowired
-	private UserService userService;
+	private UserDataService userService;
 	
 	@Autowired
     MapperFacade mapperFacade;
@@ -24,14 +24,14 @@ public class UserServiceIntegrationImpl implements UserServiceIntegration{
 	@Override
 	public UserDTO findByUserId(String userId) {
 		
-		User userFromDB = userService.getUserData(userId);
+		UserData userFromDB = userService.getUserData(userId);
 		return mapUser(userFromDB);
 	}
 	
-	private UserDTO mapUser(User user) {
+	private UserDTO mapUser(UserData user) {
 		
 		MapperFactory mapperFactory = new DefaultMapperFactory.Builder().build();
-		mapperFactory.classMap(User.class, UserDTO.class)
+		mapperFactory.classMap(UserData.class, UserDTO.class)
 		   .byDefault()
 		   .register();
 		
