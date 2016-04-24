@@ -10,7 +10,6 @@
   </parent>
   
   <artifactId>common-integrator</artifactId>
-  <version>1.0</version>
   <packaging>jar</packaging>
 
   <name>common-integrator</name>
@@ -24,7 +23,7 @@
 	</dependency>
 	<dependency>
 		<groupId>com.hire</groupId>
-		<artifactId>usermgmt-service</artifactId>
+		<artifactId>user-management-service-impl</artifactId>
 		<version>${version.product}</version>
 	</dependency>
   </dependencies>
