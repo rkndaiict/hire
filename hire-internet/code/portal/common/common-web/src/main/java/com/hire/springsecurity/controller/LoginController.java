@@ -2,7 +2,8 @@ package com.hire.springsecurity.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
- 
+
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,30 +24,24 @@ public class LoginController {
 	@RequestMapping(value = { "/", "/home" }, method = RequestMethod.GET)
     public String homePage(ModelMap model) {
         model.addAttribute("greeting", "Hi, Welcome Guest");
-        return "welcome";
+        return "/welcome";
     }
  
     @RequestMapping(value = "/admin", method = RequestMethod.GET)
     public String adminPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "admin";
+        return "/admin";
     }
  
-    @RequestMapping(value = "/db", method = RequestMethod.GET)
-    public String dbaPage(ModelMap model) {
-        model.addAttribute("user", getPrincipal());
-        return "dba";
-    }
- 
-    @RequestMapping(value = "/Access_Denied", method = RequestMethod.GET)
+    @RequestMapping(value = "/accessDenied", method = RequestMethod.GET)
     public String accessDeniedPage(ModelMap model) {
         model.addAttribute("user", getPrincipal());
-        return "accessDenied";
+        return "/accessDenied";
     }
  
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String loginPage() {
-        return "login";
+        return "/login";
     }
  
     @RequestMapping(value="/logout", method = RequestMethod.GET)
