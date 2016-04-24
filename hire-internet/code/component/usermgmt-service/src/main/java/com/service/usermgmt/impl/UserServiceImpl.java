@@ -17,7 +17,7 @@ import com.service.usermgmt.repository.UserRepository;
  * @author h.v
  *
  */
-@Service("userService")
+@Service
 @Transactional
 public class UserServiceImpl implements UserService{
 	
