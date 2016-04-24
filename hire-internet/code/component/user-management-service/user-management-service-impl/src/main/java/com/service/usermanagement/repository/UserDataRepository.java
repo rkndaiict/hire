@@ -11,13 +11,4 @@ public interface UserDataRepository extends JpaRepository<UserData, Long> {
 
 	public UserData findByUserName(@Param("userName") String userName);
 
-	public UserData findByFacebookAccountID(
-			@Param("facebookAccountID") String facebookAccountID);
-
-	public UserData findByLinkedInAccountID(
-			@Param("linkedInAccountID") String linkedInAccountID);
-
-	public UserData findByTwitterAccountID(
-			@Param("twitterAccountID") String twitterAccountID);
-
 }
