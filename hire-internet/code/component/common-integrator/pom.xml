@@ -21,13 +21,6 @@
 		<version>${version.product}</version>
 		<type>pom</type>
 	</dependency>
-	<!--
-	<dependency>
-		<groupId>com.hire</groupId>
-		<artifactId>user-management-service-impl</artifactId>
-		<version>${version.product}</version>
-	</dependency>
-	-->
 	<dependency>
 		<groupId>com.hire</groupId>
 		<artifactId>user-management-service-impl</artifactId>

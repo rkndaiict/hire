@@ -466,7 +466,7 @@
 		<version.base.product>1.0</version.base.product>
 		<version.oracle>10.2.0.3.0</version.oracle>
 		<!-- Spring Dependencies -->
-		<version.spring>4.0.1.RELEASE</version.spring>
+		<version.spring>4.1.6.RELEASE</version.spring>
 		<version.spring-security>4.0.1.RELEASE</version.spring-security>
 		<version.spring.ws>2.1.0.RELEASE</version.spring.ws>
 		<version.spring.batch>2.1.8.RELEASE</version.spring.batch>

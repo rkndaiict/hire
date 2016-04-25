@@ -26,8 +26,6 @@
 		
 		<module>../component/common/common-api</module>
 		<module>../component/common/common-impl</module>
-
-		<module>../component/usermgmt-service</module>
 		
 		<module>../component/user-management-service/user-management-service-api</module>
 		<module>../component/user-management-service/user-management-service-impl</module>
