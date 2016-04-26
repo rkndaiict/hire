@@ -10,7 +10,7 @@ import java.util.Set;
  */
 public class UserDTO {
 
-	private String ssoId;
+	private String userName;
 	private String password;
 	private String firstName;
 	private String lastName;
@@ -18,11 +18,11 @@ public class UserDTO {
 	private String status;
 	private Set<UserProfileDTO> userProfiles = new HashSet<UserProfileDTO>();
 	
-	public String getSsoId() {
-		return ssoId;
+	public String getUserName() {
+		return userName;
 	}
-	public void setSsoId(String ssoId) {
-		this.ssoId = ssoId;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public String getPassword() {
 		return password;

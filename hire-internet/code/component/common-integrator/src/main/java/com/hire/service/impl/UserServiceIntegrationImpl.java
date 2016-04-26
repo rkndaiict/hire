@@ -18,9 +18,9 @@ public class UserServiceIntegrationImpl implements UserServiceIntegration{
 	private UserDataService userService;
 	
 	@Override
-	public UserDTO findByUserId(String userId) {
+	public UserDTO findByUserName(String userName) {
 		
-		UserData userFromDB = userService.getUserData(userId);
+		UserData userFromDB = userService.getUserData(userName);
 		return mapUser(userFromDB);
 	}
 	

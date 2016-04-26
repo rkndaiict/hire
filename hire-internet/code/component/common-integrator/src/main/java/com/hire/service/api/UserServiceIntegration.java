@@ -4,5 +4,5 @@ import com.hire.dto.UserDTO;
 
 public interface UserServiceIntegration {
 
-	public UserDTO findByUserId(String userId);
+	public UserDTO findByUserName(String userId);
 }
