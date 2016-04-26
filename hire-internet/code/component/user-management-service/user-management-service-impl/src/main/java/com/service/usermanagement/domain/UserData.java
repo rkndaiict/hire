@@ -6,6 +6,8 @@ import java.util.UUID;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -27,6 +29,14 @@ public class UserData extends AbstractTrackedEntity {
 
 	@Column(name = "USER_NAME")
 	private String userName;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="STATUS")
+	private Status status;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name="USER_PROFILE_TYPE")
+	private UserProfileType userProfile;
 
 	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
 	@JoinTable(name = "User_Organization_List", joinColumns = { @JoinColumn(name = "USER_ID") }, inverseJoinColumns = { @JoinColumn(name = "USER_ORGANIZATION_ID") })
@@ -83,6 +93,22 @@ public class UserData extends AbstractTrackedEntity {
 		this.setUserIdentifier(UUID.randomUUID().toString());
 	}
 
+	public Status getStatus() {
+		return status;
+	}
+
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
+	public UserProfileType getUserProfile() {
+		return userProfile;
+	}
+
+	public void setUserProfile(UserProfileType userProfile) {
+		this.userProfile = userProfile;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
@@ -90,12 +116,10 @@ public class UserData extends AbstractTrackedEntity {
 		builder.append(userIdentifier);
 		builder.append(", userName=");
 		builder.append(userName);
-		builder.append(", userOrganizations=");
-		builder.append(userOrganizations);
-		builder.append(", userPassword=");
-		builder.append(userPassword);
-		builder.append(", userAddress=");
-		builder.append(userAddress);
+		builder.append(", status=");
+		builder.append(status);
+		builder.append(", userProfile=");
+		builder.append(userProfile);
 		builder.append("]");
 		return builder.toString();
 	}
