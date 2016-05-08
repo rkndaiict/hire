@@ -1,0 +1,45 @@
+package com.hire.ns.service.api;
+
+import com.hire.ns.dto.NotificationDTO;
+
+public interface EventStrategy {
+
+	public static enum NOTIFICTAION_EVENT_TYPE {
+		CLIENT_ADD("Client Added"), 
+		RESET_PASSWORD("Reset Password"), 
+		AGENCY_ADDED_BROKER("AGENCY_ADDED_BROKER"), 
+		EXCHANGE_ADDED_BROKER("Exchange Added Broker"), 
+		ADD_BROKER_BY_AGENCY_NOTIFICATION("Add Broker By Agency"), 
+		ADD_SUB_BROKER_BY_AGENCY_NOTIFICATION("Add Sub Broker By Agency"), 
+		EP("Employer Publish"),
+		ADD_CARRIER_IN_EXCHANGE("Add Carrier In Exchange"), 
+		OEP_UPDATE("OEP Update"), 
+		OEP_UPDATE_PRE_OEP_START("OEP Update Pre OEP Start"),
+		EMPLOYEE_ENROLLMENT_REMINDER("EMPLOYEE_ENROLLMENT_REMINDER"),
+		EMPLOYEE_EMAIL_GROUP_ID_REQ("EMPLOYEE_EMAIL_GROUP_ID_REQ"),
+		EMPLOYEE_EMAIL_GROUP_ID_NOREQ("EMPLOYEE_EMAIL_GROUP_ID_NOREQ"), 
+		ONBOARDED_ER_REG_LINK("ONBOARDED_ER_REG_LINK"),
+		ONBOARDED_IND_REG_LINK("ONBOARDED_INDV_EMAIL_LINK"), ADD_EMPLOYER_USER_REG("ADD_EMPLOYER_USER_REG"),
+		AGENCY_ADDED_AGENCY_USER("AGENCY_ADDED_AGENCY_USER"),
+		RESEND_REGISTRATION_LINK("RESEND_REGISTRATION_LINK"),
+		EMPLOYEE_RESEND_REGISTRATION_LINK("EMPLOYEE_RESEND_REGISTRATION_LINK"),
+		OPPORTUNITY_FOR_NEW_HIRE_SEP("OPPORTUNITY_FOR_NEW_HIRE_SEP");
+
+		/** The type. */
+		private String value;
+
+		NOTIFICTAION_EVENT_TYPE(String value) {
+
+			this.value = value;
+		}
+
+		public String getValue() {
+
+			return value;
+		};
+	}
+
+	boolean appendTokenIdentifierToURLUpdateNotification(
+			NotificationDTO notificationDTO);
+
+}
