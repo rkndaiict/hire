@@ -7,10 +7,11 @@ package com.service.usermanagement.domain;
  */
 public enum Status {
 
-	ACTIVE("Active"),
-    INACTIVE("Inactive"),
-    DELETED("Deleted"),
-    LOCKED("Locked");
+	PENDING_ACTIVATION("PENDING_ACTIVATION"),
+	ACTIVE("ACTIVE"),
+    INACTIVE("INACTIVE"),
+    DELETED("DELETED"),
+    LOCKED("LOCKED");
      
     private String state;
      

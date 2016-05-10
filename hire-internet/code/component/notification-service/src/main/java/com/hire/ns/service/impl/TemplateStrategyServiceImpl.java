@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.hire.ns.constants.EmailConstants;
+import com.hire.common.module.constant.EmailConstants;
 import com.hire.ns.domain.Email;
 import com.hire.ns.domain.EmailRecipientType;
 import com.hire.ns.domain.MessageTemplate;

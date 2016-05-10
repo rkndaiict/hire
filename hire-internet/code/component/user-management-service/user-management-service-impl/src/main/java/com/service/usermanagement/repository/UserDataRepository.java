@@ -12,4 +12,6 @@ public interface UserDataRepository extends JpaRepository<UserData, Long> {
 	public UserData findByUserName(@Param("userName") String userName);
 
 	public UserData findByUserIdentifier(@Param("userIdentifier") String userIdentifier);
+	
+	public UserData findByUserEmail(@Param("email") String email);
 }

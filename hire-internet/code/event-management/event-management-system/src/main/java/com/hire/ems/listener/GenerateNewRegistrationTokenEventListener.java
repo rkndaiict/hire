@@ -8,14 +8,14 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationListener;
 
 import com.hire.common.module.constant.NotifyEvent;
-import com.hire.common.module.event.OnRegistrationCompleteEvent;
+import com.hire.common.module.event.GenerateNewRegistrationTokenEvent;
 
-public class RegistrationEventListener implements ApplicationListener<OnRegistrationCompleteEvent> {
+public class GenerateNewRegistrationTokenEventListener implements ApplicationListener<GenerateNewRegistrationTokenEvent> {
 
-	private static Logger logger = LoggerFactory.getLogger(RegistrationEventListener.class);
+	private static Logger logger = LoggerFactory.getLogger(GenerateNewRegistrationTokenEventListener.class);
 	
 	@Override
-	public void onApplicationEvent(OnRegistrationCompleteEvent event) {
+	public void onApplicationEvent(GenerateNewRegistrationTokenEvent event) {
 		Map<String, Object> map = (HashMap<String, Object>)event.getEventContext();
 		logger.info("Listening to RegistrationCompleteEvent.");
 		if(NotifyEvent.SEEKER_REGISTRATION.equals(event.getEventId())) {
@@ -25,5 +25,4 @@ public class RegistrationEventListener implements ApplicationListener<OnRegistra
 			
 		}
 	}
-
 }

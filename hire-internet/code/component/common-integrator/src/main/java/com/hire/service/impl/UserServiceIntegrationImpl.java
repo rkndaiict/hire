@@ -24,6 +24,13 @@ public class UserServiceIntegrationImpl implements UserServiceIntegration{
 		UserData userFromDB = userService.getUserData(userName);
 		return userConverter.mapUser(userFromDB);
 	}
+	
+	@Override
+	public UserDTO findByUserEmail(String email) {
+		
+		UserData userFromDB = userService.getUserByEmail(email);
+		return userConverter.mapUser(userFromDB);
+	}
 
 
 }

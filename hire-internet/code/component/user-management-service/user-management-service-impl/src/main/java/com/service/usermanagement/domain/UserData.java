@@ -44,6 +44,9 @@ public class UserData extends AbstractTrackedEntity {
 
 	@OneToOne(mappedBy = "userData", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private UserPassword userPassword;
+	
+	@Column(name="EMAIL")
+	private String email;
 
 	public String getUserName() {
 		return userName;
@@ -96,6 +99,14 @@ public class UserData extends AbstractTrackedEntity {
 
 	public void setUserProfile(UserProfileType userProfile) {
 		this.userProfile = userProfile;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 	@Override

@@ -32,6 +32,7 @@ public class UserDTO {
 	
 	private String status;
 	private String userProfile;
+	private String userIdentifier;
 	
 	public String getUserName() {
 		return userName;
@@ -68,6 +69,13 @@ public class UserDTO {
 	}
 	public void setMatchingPassword(String matchingPassword) {
 		this.matchingPassword = matchingPassword;
+	}
+	
+	public String getUserIdentifier() {
+		return userIdentifier;
+	}
+	public void setUserIdentifier(String userIdentifier) {
+		this.userIdentifier = userIdentifier;
 	}
 	
 	@Override

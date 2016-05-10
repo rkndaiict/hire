@@ -40,4 +40,8 @@ public interface UserDataService {
 	
 	public UserData findByUserIdentifier(String userIdentifier);
 
+	UserData findByUserUserEmail(String email);
+
+	UserData getUserByEmail(String email);
+
 }

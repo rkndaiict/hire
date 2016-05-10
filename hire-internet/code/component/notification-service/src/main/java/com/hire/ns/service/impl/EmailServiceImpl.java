@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.hire.ns.constants.EmailConstants;
+import com.hire.common.module.constant.EmailConstants;
 import com.hire.ns.domain.Email;
 import com.hire.ns.domain.MessageTemplate;
 import com.hire.ns.dto.EmailDTO;
@@ -58,17 +58,6 @@ public class EmailServiceImpl implements EmailService {
 		}
 
 		LOGGER.info("Finished sending email to :" + nsEmail.getToEmail());
-	}
-
-	private List<EmailDTO> convert(List<Email> nsEmails) {
-		List<EmailDTO> emailDTOs = new ArrayList<EmailDTO>();
-		for (Email nsEmail : nsEmails) {
-			EmailDTO emailDTO = new EmailDTO();
-			emailDTO.setEmailId(nsEmail.getId());
-			emailDTO.setToEmail(nsEmail.getToEmail());
-			emailDTOs.add(emailDTO);
-		}
-		return emailDTOs;
 	}
 
 	@Override

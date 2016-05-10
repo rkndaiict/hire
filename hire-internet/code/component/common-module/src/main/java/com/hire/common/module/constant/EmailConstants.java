@@ -1,4 +1,4 @@
-package com.hire.ns.constants;
+package com.hire.common.module.constant;
 
 /**
  * The Interface EmailConstants.
@@ -18,10 +18,6 @@ public final class EmailConstants {
     public static final String MAIL_BODY = "mailBody";
 
     public static final String CUSTOM_BODY_MESSAGE = "customBodyMessage";
-
-    public static final String EMPLOYER_NAME = "employerName";
-
-    public static final String EMPLOYEE_NAME = "employeeName";
 
 	public static final String PORTAL_URL = "portalUrl";
 

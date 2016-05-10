@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.social.connect.support.ConnectionFactoryRegistry;
-import org.springframework.social.facebook.api.FacebookProfile;
+import org.springframework.social.facebook.api.User;
 import org.springframework.social.facebook.api.impl.FacebookTemplate;
 import org.springframework.social.facebook.connect.FacebookConnectionFactory;
 import org.springframework.social.oauth2.GrantType;
@@ -84,7 +84,7 @@ public class FacebookController<FacebookApi> {
 
 		FacebookTemplate template = new FacebookTemplate(accessToken.getToken());
 
-		FacebookProfile facebookProfile = template.userOperations()
+		User facebookProfile = template.userOperations()
 				.getUserProfile();
 
 		String userId = facebookProfile.getId();
