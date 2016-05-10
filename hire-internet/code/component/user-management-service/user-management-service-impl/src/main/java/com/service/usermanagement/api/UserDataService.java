@@ -8,7 +8,7 @@ import com.service.usermanagement.domain.UserPassword;
 
 public interface UserDataService {
 
-	public void createUserData(UserData userData) throws ServiceException;
+	public UserData createUserData(UserData userData) throws ServiceException;
 
 	public UserData updateUserData(UserData userData) throws ServiceException;
 
@@ -37,5 +37,7 @@ public interface UserDataService {
 
 	public void attachUserOrganizationWithUserData(UserData userData,
 			UserOrganization userOrganization) throws ServiceException;
+	
+	public UserData findByUserIdentifier(String userIdentifier);
 
 }

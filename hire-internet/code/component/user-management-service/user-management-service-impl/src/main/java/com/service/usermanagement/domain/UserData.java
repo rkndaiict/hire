@@ -45,9 +45,6 @@ public class UserData extends AbstractTrackedEntity {
 	@OneToOne(mappedBy = "userData", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
 	private UserPassword userPassword;
 
-	@OneToOne(mappedBy = "userData", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-	private UserAddress userAddress;
-
 	public String getUserName() {
 		return userName;
 	}
@@ -78,14 +75,6 @@ public class UserData extends AbstractTrackedEntity {
 
 	public void setUserPassword(UserPassword userPassword) {
 		this.userPassword = userPassword;
-	}
-
-	public UserAddress getUserAddress() {
-		return userAddress;
-	}
-
-	public void setUserAddress(UserAddress userAddress) {
-		this.userAddress = userAddress;
 	}
 
 	@PrePersist

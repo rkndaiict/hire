@@ -12,10 +12,6 @@ import javax.persistence.Transient;
 import org.hibernate.proxy.HibernateProxy;
 import org.springframework.security.acls.model.ObjectIdentity;
 
-//@TypeDefs({@TypeDef(name = "encryptedString", typeClass = EncryptedStringType.class, parameters = { @Parameter(name = "encryptorRegisteredName", value = "hibernateStringEncryptor") }),
-//		@TypeDef(name = "encryptedACHString", typeClass = EncryptedStringType.class, parameters = { @Parameter(name = "encryptorRegisteredName", value = "hibernateACHStringEncryptor") })})
-//@FilterDef(name = "exchangeFilter", parameters = { @ParamDef(name = "EXCHANGE_ID", type = "string") })
-//@Filters({ @Filter(name = "exchangeFilter", condition = "EXCHANGE_ID = :EXCHANGE_ID") })
 @MappedSuperclass
 public abstract class BaseEntity implements ObjectIdentity {
 
@@ -34,13 +30,6 @@ public abstract class BaseEntity implements ObjectIdentity {
 
 	@Column(name = "owner_user_id")
 	private Long ownerUserId;
-
-//	@Column(name = "EXCHANGE_ID")
-//	private String exchangeId;
-
-	/*
-	 * public Long getId() { return this.id; }
-	 */
 
 	/**
 	 * This method has been made final to prevent overriding by Hibernate Proxy
@@ -104,29 +93,5 @@ public abstract class BaseEntity implements ObjectIdentity {
 	public void setType(String type) {
 		this.type = type;
 	}
-
-//	public String getExchangeId() {
-//		return exchangeId;
-//	}
-
-//	public void setExchangeId(String exchangeId) {
-//		this.exchangeId = exchangeId;
-//	}
-
-	// @PrePersist
-	// public void setExchangeIdPrePersist() {
-	// if(null != ExchangeContextUtil.getExchangeId() &&
-	// !StringUtils.hasText(getExchangeId())) //added for multi exchange portals
-	// as in that case ExchangeContextUtil will be bull
-	// setExchangeId(ExchangeContextUtil.getExchangeId());
-	// }
-	//
-	// @PreUpdate
-	// public void onPreUpdate() {
-	// if(null != ExchangeContextUtil.getExchangeId() &&
-	// !StringUtils.hasText(getExchangeId())) //added for multi exchange portals
-	// as in that case ExchangeContextUtil will be bull
-	// setExchangeId(ExchangeContextUtil.getExchangeId());
-	// }
 
 }

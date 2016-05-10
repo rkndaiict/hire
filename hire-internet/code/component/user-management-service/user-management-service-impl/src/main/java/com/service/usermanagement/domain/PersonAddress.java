@@ -2,7 +2,6 @@ package com.service.usermanagement.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
@@ -11,13 +10,13 @@ import com.common.base.domain.Address;
 
 @Entity
 @Table(name = "USER_ADDRESS")
-public class UserAddress extends AbstractTrackedEntity {
+public class PersonAddress extends AbstractTrackedEntity {
 
 	private static final long serialVersionUID = 1L;
 
 	@OneToOne
-	@JoinColumn(name = "USER_ID")
-	private UserData userData;
+	@JoinColumn(name = "PERSON_DETAIL_ID")
+	private PersonDetail personDetail;
 
 	@OneToOne
 	@JoinColumn(name = "PRIMARY_ADDRESS_ID")
@@ -27,12 +26,12 @@ public class UserAddress extends AbstractTrackedEntity {
 	@JoinColumn(name = "SECONDARY_ADDRESS_ID")
 	private Address secondaryAddress;
 
-	public UserData getUserData() {
-		return userData;
+	public PersonDetail getPersonDetail() {
+		return personDetail;
 	}
 
-	public void setUserData(UserData userData) {
-		this.userData = userData;
+	public void serPersonDetail(PersonDetail userData) {
+		this.personDetail = userData;
 	}
 
 	public Address getPrimaryAddress() {
@@ -55,7 +54,7 @@ public class UserAddress extends AbstractTrackedEntity {
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("UserAddress [userData=");
-		builder.append(userData);
+		builder.append(personDetail);
 		builder.append(", primaryAddress=");
 		builder.append(primaryAddress);
 		builder.append(", secondaryAddress=");

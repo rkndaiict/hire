@@ -8,8 +8,7 @@
 	</parent>
 	
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.hire</groupId>
   <artifactId>common-api</artifactId>
-  <version>1.0</version>
   <name>common-api</name>
+  
 </project>

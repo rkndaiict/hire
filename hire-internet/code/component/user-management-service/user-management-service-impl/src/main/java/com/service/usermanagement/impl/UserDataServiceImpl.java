@@ -26,8 +26,7 @@ import com.service.usermanagement.repository.UserPasswordRepository;
 @Service
 public class UserDataServiceImpl implements UserDataService {
 
-	public static Logger logger = LoggerFactory
-			.getLogger(UserDataServiceImpl.class);
+	public static Logger logger = LoggerFactory.getLogger(UserDataServiceImpl.class);
 
 	@Autowired
 	private UserDataRepository userDataRepository;
@@ -43,7 +42,7 @@ public class UserDataServiceImpl implements UserDataService {
 	
 	@Override
 	@Transactional(readOnly=false)
-	public void createUserData(UserData userData) throws ServiceException {
+	public UserData createUserData(UserData userData) throws ServiceException {
 
 		if (StringUtils.isBlank(userData.getUserName())) {
 			throw new ServiceException(new Error(ErrorCode.INSUFFICIENT_DATA,
@@ -54,10 +53,12 @@ public class UserDataServiceImpl implements UserDataService {
 
 		if (userDataFromDB != null) {
 			updateUserData(userData);
-			return;
+			return userData;
 		}
 		
 		userDataRepository.save(userData);
+		
+		return userData;
 	}
 
 	@Override
@@ -71,17 +72,8 @@ public class UserDataServiceImpl implements UserDataService {
 		UserData userDataFromDB = getUserDataWithException(userData
 				.getUserName());
 
-		updateUserDataFromDBUsingUserDataFromService(userDataFromDB, userData);
-
 		userDataRepository.save(userDataFromDB);
 		return userDataFromDB;
-	}
-
-	private void updateUserDataFromDBUsingUserDataFromService(
-			UserData userDataFromDB, UserData userData) {
-		if (userData.getUserAddress() != null) {
-			userDataFromDB.setUserAddress(userData.getUserAddress());
-		}
 	}
 
 	@Override
@@ -190,6 +182,11 @@ public class UserDataServiceImpl implements UserDataService {
 		
 		userData.getUserOrganizations().add(userOrganization);
 		userDataRepository.save(userData);
+	}
+
+	@Override
+	public UserData findByUserIdentifier(String userIdentifier) {
+		return userDataRepository.findByUserIdentifier(userIdentifier);
 	}
 
 }

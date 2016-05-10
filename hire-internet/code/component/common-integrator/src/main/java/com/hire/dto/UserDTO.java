@@ -1,18 +1,35 @@
 package com.hire.dto;
 
-import java.util.HashSet;
-import java.util.Set;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import com.hire.validator.custom.api.PasswordMatches;
+import com.hire.validator.custom.api.ValidEmail;
 
 /**
  * 
  * @author h.v
  *
  */
+@PasswordMatches
 public class UserDTO {
 
+	@NotNull
+	@Size(min = 1)
 	private String userName;
-	private String userIdentifier;
+	
+	@ValidEmail
+	@NotNull
+	@Size(min = 1)
+	private String email;
+	
+	@NotNull
 	private String password;
+	
+	@NotNull
+    @Size(min = 1)
+    private String matchingPassword;
+	
 	private String status;
 	private String userProfile;
 	
@@ -28,12 +45,6 @@ public class UserDTO {
 	public void setStatus(String status) {
 		this.status = status;
 	}
-	public String getUserIdentifier() {
-		return userIdentifier;
-	}
-	public void setUserIdentifier(String userIdentifier) {
-		this.userIdentifier = userIdentifier;
-	}
 	public String getUserProfile() {
 		return userProfile;
 	}
@@ -46,12 +57,24 @@ public class UserDTO {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getMatchingPassword() {
+		return matchingPassword;
+	}
+	public void setMatchingPassword(String matchingPassword) {
+		this.matchingPassword = matchingPassword;
+	}
 	
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("User [userIdentifier=");
-		builder.append(userIdentifier);
+		builder.append(email);
 		builder.append(", userName=");
 		builder.append(userName);
 		builder.append(", status=");

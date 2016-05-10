@@ -15,6 +15,11 @@
   <name>common-integrator</name>
 
   <dependencies>
+	<dependency>
+		<groupId>com.hire</groupId>
+		<artifactId>common-module</artifactId>
+		<version>${version.product}</version>
+	</dependency>
     <dependency>
 		<groupId>com.hire</groupId>
 		<artifactId>web-deps</artifactId>

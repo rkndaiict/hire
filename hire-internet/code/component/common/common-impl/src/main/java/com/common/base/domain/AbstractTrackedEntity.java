@@ -11,25 +11,20 @@ import org.hibernate.envers.Audited;
 
 @Audited
 @MappedSuperclass
-//@EntityListeners(SimpleAudit.class)
 public abstract class AbstractTrackedEntity extends BaseEntity{
 
 	private static final long serialVersionUID = -7752944441772876583L;
 
-//	@NotAudited
 	@Column(name = "created_by")
 	private String createdBy;
 	
-//	@NotAudited
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "created_date", updatable = false)
 	private Date createdDate;
 
-//	@NotAudited
 	@Column(name = "updated_by")
 	private String updatedBy;
 	
-//	@NotAudited
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "updated_date")
 	private Date updatedDate;
