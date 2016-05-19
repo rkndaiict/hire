@@ -102,7 +102,7 @@ public class UserDataServiceImpl implements UserDataService {
 		if (StringUtils.isBlank(email)) {
 			return null;
 		}
-		UserData userDataFromDB = userDataRepository.findByUserEmail(email);
+		UserData userDataFromDB = userDataRepository.findByEmail(email);
 
 		return userDataFromDB;
 	}
@@ -201,7 +201,7 @@ public class UserDataServiceImpl implements UserDataService {
 	
 	@Override
 	public UserData findByUserUserEmail(String email) {
-		return userDataRepository.findByUserIdentifier(email);
+		return userDataRepository.findByEmail(email);
 	}
 
 }

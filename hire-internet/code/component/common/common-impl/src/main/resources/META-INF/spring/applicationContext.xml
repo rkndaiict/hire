@@ -19,7 +19,8 @@
                            http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 	<context:component-scan base-package="com.common.base.utils,
-										  com.common.base.utils.mapper" />
+										  com.common.base.utils.mapper,
+										  com.hire.common.base.impl" />
 										  
 	<jpa:repositories base-package="com.common.base.repository"
 		repository-impl-postfix="CustomImpl" />

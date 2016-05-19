@@ -16,7 +16,9 @@
 	
 	<mvc:annotation-driven />
 
-	<context:component-scan base-package="com.hire.springsecurity.controller, com.hire.springsecurity.service" />
+	<context:component-scan base-package="com.hire.springsecurity.controller, 
+										  com.hire.springsecurity.service,
+										  com.hire.registration.controller" />
 
 	<context:annotation-config/>
 	

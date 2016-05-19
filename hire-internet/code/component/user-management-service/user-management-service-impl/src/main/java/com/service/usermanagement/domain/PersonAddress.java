@@ -9,7 +9,7 @@ import com.common.base.domain.AbstractTrackedEntity;
 import com.common.base.domain.Address;
 
 @Entity
-@Table(name = "USER_ADDRESS")
+@Table(name = "PERSON_ADDRESS")
 public class PersonAddress extends AbstractTrackedEntity {
 
 	private static final long serialVersionUID = 1L;
@@ -53,9 +53,8 @@ public class PersonAddress extends AbstractTrackedEntity {
 	@Override
 	public String toString() {
 		StringBuilder builder = new StringBuilder();
-		builder.append("UserAddress [userData=");
-		builder.append(personDetail);
-		builder.append(", primaryAddress=");
+		builder.append("PersonAddress [");
+		builder.append("primaryAddress=");
 		builder.append(primaryAddress);
 		builder.append(", secondaryAddress=");
 		builder.append(secondaryAddress);

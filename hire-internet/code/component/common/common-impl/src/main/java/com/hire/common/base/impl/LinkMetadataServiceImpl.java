@@ -4,12 +4,14 @@ import java.util.Date;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.common.base.domain.LinkMetaData;
 import com.common.base.repository.LinkPersistRepository;
 import com.common.base.utils.DateUtil;
 import com.hire.common.base.api.LinkMetadataService;
 
+@Component
 public class LinkMetadataServiceImpl implements LinkMetadataService {
 
 	@Autowired

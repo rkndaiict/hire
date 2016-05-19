@@ -27,6 +27,11 @@
 		<type>pom</type>
 	</dependency>
 	<dependency>
+		<groupId>com.hire</groupId>
+		<artifactId>event-management-system</artifactId>
+		<version>${version.product}</version>
+	</dependency>
+	<dependency>
 		<groupId>edu.uci.ics</groupId>
 		<artifactId>crawler4j</artifactId>
 		<version>4.1</version>

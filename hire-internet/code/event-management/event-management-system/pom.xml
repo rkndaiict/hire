@@ -32,9 +32,16 @@
 		</dependency>
 		<dependency>
 			<groupId>com.hire</groupId>
-			<artifactId>user-management-service-impl</artifactId>
+			<artifactId>common-integrator</artifactId>
 			<version>${version.product}</version>
 		</dependency>
+		<!-- 
+		<dependency>
+			<groupId>com.hire</groupId>
+			<artifactId>notification-system</artifactId>
+			<version>${version.product}</version>
+		</dependency>
+		-->
   		<!-- Spring Integration dependencies -->
 		<dependency>
 			<groupId>org.springframework.integration</groupId>

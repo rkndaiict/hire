@@ -3,6 +3,7 @@ package com.hire.ns.endpoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.hire.ns.dto.NotificationDTO;
 import com.hire.ns.service.api.LinkTokenService;
@@ -13,6 +14,7 @@ import com.hire.ns.service.api.TemplateStrategyService;
  * @author harshul.varshney
  *
  */
+@Component
 public class EmailEndPoint {
 	
 	private static final Logger logger = LoggerFactory.getLogger(EmailEndPoint.class);

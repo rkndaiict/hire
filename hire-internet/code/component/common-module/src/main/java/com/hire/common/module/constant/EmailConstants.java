@@ -21,6 +21,8 @@ public final class EmailConstants {
 
 	public static final String PORTAL_URL = "portalUrl";
 
+	public static final String USER_DTO = "USER_DTO";
+
     public static enum NOTIFICTAION_EVENT_TYPE {       
         EP("Employer Publish"),
     	FILE_PROCESSING_FAILUER("File Processing Failure");	

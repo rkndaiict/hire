@@ -19,6 +19,7 @@
        http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
 
 
+<!--  
 	<bean id="propertyConfigurer"
 			class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="location" value="/props/ns.properties" />
@@ -31,56 +32,49 @@
 			<value>SYSTEM_PROPERTIES_MODE_OVERRIDE</value>
 		</property>
 	</bean>	
-	
-	<jpa:repositories base-package="com.hcentive.phix.ns.repository"
+-->
+
+	<jpa:repositories base-package="com.hire.ns.repository" 
 		repository-impl-postfix="CustomImpl" />
+	
+	<context:component-scan base-package="com.hire.ns.service.impl, com.hire.ns.endpoint" />
+	
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
+			<property name="jndiName" value="jdbc/hireDS" /> 
+			<property name="resourceRef" value="true" /> 
+	</bean>
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan" value="com.hire.ns.domain, com.common.base.domain" />
+		<property name="jpaVendorAdapter">
+			<bean id="jpaAdapter"
+				class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="database" value="ORACLE" />
+				<property name="showSql" value="true" />
+				<property name="generateDdl" value="false" />
+			</bean>
+		</property>
+		<property name="jpaProperties">
+			<props>
+				<prop key="hibernate.listeners.envers.autoRegister">false</prop>
+				<prop key="hibernate.jdbc.batch_size">500</prop>
+				<prop key="hibernate.default_batch_fetch_size">50</prop>
+				<prop key="hibernate.jdbc.fetch_size">500</prop>
+				
+				<prop key="hibernate.order_inserts">true</prop>
+				<prop key="hibernate.order_updates">true</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Add Transaction support -->
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- Use @Transaction annotations for managing transactions -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
 		
-    <jpa:repositories base-package="com.hcentive.exchange.repository" />
-	
-	<context:component-scan base-package="com.hire.ns" />
-	
-	<beans profile="hire">
-	
-		<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean"> 
-				<property name="jndiName" value="jdbc/hireDS" /> 
-				<property name="resourceRef" value="true" /> 
-		</bean>
-	
-		<bean id="entityManagerFactory"
-			class="com.hcentive.common.hibernate.MultiTenantEntityManagerFactoryBean">
-			<property name="dataSource" ref="dataSource" />
-			<property name="packagesToScan" value="com.hire.ns.domain,com.common.base.domain" />
-			<property name="jpaVendorAdapter">
-				<bean id="jpaAdapter"
-					class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-					<property name="database" value="ORACLE" />
-					<property name="showSql" value="true" />
-					<property name="generateDdl" value="false" />
-				</bean>
-			</property>
-			<property name="jpaProperties">
-				<props>
-					<prop key="hibernate.listeners.envers.autoRegister">false</prop>
-					<prop key="hibernate.jdbc.batch_size">500</prop>
-					<prop key="hibernate.default_batch_fetch_size">50</prop>
-					<prop key="hibernate.jdbc.fetch_size">500</prop>
-					
-					<prop key="hibernate.order_inserts">true</prop>
-					<prop key="hibernate.order_updates">true</prop>
-				</props>
-			</property>
-		</bean>
-	
-		<bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
-	
-	
-		<!-- Add Transaction support -->
-		<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-			<property name="entityManagerFactory" ref="entityManagerFactory" />
-		</bean>
-	
-		<!-- Use @Transaction annotations for managing transactions -->
-		<tx:annotation-driven transaction-manager="transactionManager" />
-		
-	</beans>
 </beans>

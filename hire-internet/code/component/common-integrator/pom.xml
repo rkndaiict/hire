@@ -31,5 +31,12 @@
 		<artifactId>user-management-service-impl</artifactId>
 		<version>${version.product}</version>
 	</dependency>
+	<!-- 
+	<dependency>
+		<groupId>com.hire</groupId>
+		<artifactId>notification-system</artifactId>
+		<version>${version.product}</version>
+	</dependency>
+	-->
   </dependencies>
 </project>

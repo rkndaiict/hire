@@ -4,6 +4,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -18,6 +19,7 @@ import com.hire.service.api.UserRegistrationServiceIntegration;
 import com.hire.service.api.UserServiceIntegration;
 
 @RequestMapping(value = "/user/registration")
+@Controller
 public class UserRegistrationController {
 	
 	@Autowired

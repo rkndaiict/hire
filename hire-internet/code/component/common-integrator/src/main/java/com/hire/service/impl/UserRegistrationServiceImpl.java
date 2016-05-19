@@ -8,6 +8,7 @@ import org.apache.commons.lang.time.DateUtils;
 import org.joda.time.DateTimeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationEventPublisher;
+import org.springframework.stereotype.Component;
 
 import com.common.base.constants.RegistrationLinkStatus;
 import com.common.base.domain.LinkMetaData;
@@ -27,6 +28,7 @@ import com.service.usermanagement.domain.UserData;
 import com.service.usermanagement.domain.UserPassword;
 import com.service.usermanagement.domain.UserProfileType;
 
+@Component
 public class UserRegistrationServiceImpl implements UserRegistrationServiceIntegration {
 
 	@Autowired
@@ -49,7 +51,6 @@ public class UserRegistrationServiceImpl implements UserRegistrationServiceInteg
 		
 		UserData user = new UserData();
 		user.setUserName(accountDto.getUserName());
-		user.setUserIdentifier(UUID.randomUUID().toString());
 		user.setStatus(Status.PENDING_ACTIVATION);
 		UserProfileType userProfile = UserProfileType.valueOf(accountDto.getUserProfile());
 		user.setUserProfile(userProfile);
@@ -63,7 +64,12 @@ public class UserRegistrationServiceImpl implements UserRegistrationServiceInteg
 		UserData userFromDB = userService.createUserData(user);
 		
 		//raise registration event
-		 eventPublisher.publishEvent(new OnRegistrationCompleteEvent(NotifyEvent.SEEKER_REGISTRATION, null));
+		String event = userProfile == UserProfileType.SEEKER ? NotifyEvent.SEEKER_REGISTRATION 
+						: (userProfile == UserProfileType.AGENCY ? NotifyEvent.AGENCY_REGISTRATION : null);
+		UserDTO userDTO = userConverter.mapUser(userFromDB);
+		Map<String, Object> paramMap = new HashMap<>();
+		paramMap.put(EmailConstants.USER_DTO, userDTO);
+		eventPublisher.publishEvent(new OnRegistrationCompleteEvent(event, paramMap));
 		
 		return userConverter.mapUser(userFromDB);
 	}
